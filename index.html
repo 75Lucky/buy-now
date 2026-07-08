@@ -410,10 +410,15 @@ function renderContent(){
 
       const copyBtn = document.createElement('button');
       copyBtn.className = 'copybtn';
-      copyBtn.textContent = 'Open';
+      copyBtn.textContent = 'Copy link';
       copyBtn.onclick = (e) => {
         e.stopPropagation();
-        window.open(url, '_blank');
+        copyText(buildSingleText(activeClass, sec, subj, url), () => {
+          copyBtn.textContent = 'Copied ✓';
+          copyBtn.classList.add('done');
+          showToast(`Copied: ${labelFor(activeClass, sec, subj)}`);
+          setTimeout(() => { copyBtn.textContent = 'Copy link'; copyBtn.classList.remove('done'); }, 1400);
+        });
       };
 
       card.appendChild(chk);
