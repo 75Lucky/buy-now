@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyExam247 — Notes & Links</title>
+<title>MyExam247 — Notes &amp; Links</title>
 <style>
   :root{
     --ink:#1b1d23;
@@ -188,8 +188,8 @@
   }
   .sb-clear{ background:rgba(255,255,255,0.12); color:#fff; }
   .sb-clear:hover{ background:rgba(255,255,255,0.2); }
-  .sb-copy{ background:var(--saffron); color:#1b1d23; }
-  .sb-copy:hover{ background:#2fe867; }
+  .sb-copy{ background:var(--saffron); color:#fff; }
+  .sb-copy:hover{ background:var(--saffron-dk); }
   .sb-copy.done{ background:#fff; color:var(--green-dk); }
 
   .toast{
@@ -218,7 +218,7 @@
   <div class="brand">
     <span class="mark">ME247</span>
     <h1>MyExam247</h1>
-    <span class="tag">Bihar Board · Notes, MCQs & PYQs</span>
+    <span class="tag">Bihar Board · Notes, MCQs &amp; PYQs</span>
   </div>
 </div>
 
@@ -239,33 +239,6 @@
 
 <script>
 const DATA = {
-  "Class 11": {
-    "Theory": {
-      "__ALL__": "https://drive.google.com/drive/folders/1Av2QIXDuzG4YMmKxONulPx8P8k_fjtNL?usp=sharing",
-      "Physics": "https://drive.google.com/drive/folders/1GImC00P_MirU4ycJkb6FAMTbOFeToQ6N?usp=sharing",
-      "Biology": "https://drive.google.com/drive/folders/1Ev4Wgtt7MSbmmYHcvZCxH733snqVAtDd?usp=sharing",
-      "Chemistry": "https://drive.google.com/drive/folders/1xEbz3sNqJrtQsEKKhmtKNKdrw5tgd4zp?usp=sharing"
-    }
-  },
-  "Class 12": {
-    "Objective (MCQ)": {
-      "__ALL__": "https://drive.google.com/drive/folders/1P_F7MKihwD0Y7EylMKoRktusMvcYfHJT?usp=sharing",
-      "Biology": "https://drive.google.com/drive/folders/1v0n8SgmwUEaIIq_uBR1Z_d7pFCD2YeH-?usp=sharing",
-      "Chemistry": "https://drive.google.com/drive/folders/1vi8IEvdV3V0I9V5QTMe54h7YxHd9cWBT?usp=sharing",
-      "English": "https://drive.google.com/drive/folders/1FEHPkD3l11-DIGzxW3Relw9VxhrLEVRp?usp=sharing",
-      "Hindi": "https://drive.google.com/drive/folders/1Oo3Ja_ScSy6d_YMTw1DzwiH3sBPltBRc?usp=sharing",
-      "Mathematics": "https://drive.google.com/drive/folders/1LursBU2iv8gJI9am6WCgMICEA-i792E-?usp=sharing",
-      "Physics": "https://drive.google.com/drive/folders/1GpqWvbTKjxJcqjKVRXiCpFgzj1PG47Cu?usp=sharing"
-    },
-    "Theory": {
-      "__ALL__": "https://drive.google.com/drive/folders/19i5Hdm2bnMNxwxU0zSbL2x4nMPCJsSjE?usp=sharing",
-      "Chemistry": "https://drive.google.com/drive/folders/1Dvud61o82LoI85SH8KPqDKbHtYWYU5hl?usp=sharing",
-      "Biology": "https://drive.google.com/drive/folders/1lzcxBhkNJe70cJDm-ddYbW7Nw6Hcy9VB?usp=sharing",
-      "English": "https://drive.google.com/drive/folders/11olhSviQoyqGEuEEOOcFnbKpCVZkxPZH?usp=sharing",
-      "Hindi": "https://drive.google.com/drive/folders/16EeQ8XaYYe-7B6SLT8mKSLaMSBT3tREk?usp=sharing",
-      "Physics": "https://drive.google.com/drive/folders/1WAc4UwUNjPvo4supz99LMJX5Lxaqs4xW?usp=sharing"
-    }
-  },
   "Class 10": {
     "Theory": {
       "__ALL__": "https://drive.google.com/drive/folders/16LYoEBNtaEPcDHAZqd3mKyd0BeKY585M?usp=sharing",
@@ -276,28 +249,78 @@ const DATA = {
     },
     "Objective (MCQ)": {
       "__ALL__": "https://drive.google.com/drive/folders/1M5Yrbycuj4k9ttiACrc-OERa5lanCP_X?usp=sharing",
-      "English": "https://drive.google.com/drive/folders/1e9LqRnRHJIcM5BbGQQ_He00WSXN1pmdm?usp=sharing",
-      "Hindi": "https://drive.google.com/drive/folders/13TOkYufrvwH_eRHhXmYKsG230d77Cbjp?usp=sharing",
+      "Science": "https://drive.google.com/drive/folders/1wyPNEkUWPJPtjaFPQ9e0Z0d3vy_9MtBG?usp=sharing",
       "Mathematics": "https://drive.google.com/drive/folders/1oEcN-n-mJe34p74SSF2YQ5YkPGvtkFbx?usp=sharing",
+      "Hindi": "https://drive.google.com/drive/folders/13TOkYufrvwH_eRHhXmYKsG230d77Cbjp?usp=sharing",
+      "English": "https://drive.google.com/drive/folders/1e9LqRnRHJIcM5BbGQQ_He00WSXN1pmdm?usp=sharing",
       "SST": "https://drive.google.com/drive/folders/1_Jbs3Mef4XqPyLZEk86dtNRacc_nqmFx?usp=sharing",
       "Sanskrit": "https://drive.google.com/drive/folders/1a8F650FQa5uddZw6AwQfnXSmROyzgbOu?usp=sharing"
+    }
+  },
+  "Class 11": {
+    "Theory": {
+      "__ALL__": "https://drive.google.com/drive/folders/1Av2QIXDuzG4YMmKxONulPx8P8k_fjtNL?usp=sharing",
+      "Physics": "https://drive.google.com/drive/folders/1GImC00P_MirU4ycJkb6FAMTbOFeToQ6N?usp=sharing",
+      "Chemistry": "https://drive.google.com/drive/folders/1xEbz3sNqJrtQsEKKhmtKNKdrw5tgd4zp?usp=sharing",
+      "Mathematics": "https://drive.google.com/drive/folders/1UfF6FC7cb1WqAnpBlsbtTVnrcEthnp5-?usp=drive_link",
+      "Biology": "https://drive.google.com/drive/folders/1Ev4Wgtt7MSbmmYHcvZCxH733snqVAtDd?usp=sharing",
+      "Hindi": "",
+      "English": ""
+    },
+    "Objective (MCQ)": {
+      "__ALL__": "https://drive.google.com/drive/folders/1i3cne4XWGPPped6xY4a4JGAX2lSmG0Vi?usp=sharing",
+      "Physics": "https://drive.google.com/drive/folders/1nx0ttsBT2v2WiFpRxyVupIyHj0teTRYE?usp=sharing",
+      "Chemistry": "https://drive.google.com/drive/folders/1AN6z9qc9qFuM0v6rIQtkfXc-LCMLHqhU?usp=sharing",
+      "Mathematics": "",
+      "Biology": "https://drive.google.com/drive/folders/1Nqjb91GxFoGuLrzPSFFm7ldciyDKcypy?usp=sharing",
+      "Hindi": "",
+      "English": ""
+    }
+  },
+  "Class 12": {
+    "Theory": {
+      "__ALL__": "https://drive.google.com/drive/folders/19i5Hdm2bnMNxwxU0zSbL2x4nMPCJsSjE?usp=sharing",
+      "Physics": "https://drive.google.com/drive/folders/1WAc4UwUNjPvo4supz99LMJX5Lxaqs4xW?usp=sharing",
+      "Chemistry": "https://drive.google.com/drive/folders/1Dvud61o82LoI85SH8KPqDKbHtYWYU5hl?usp=sharing",
+      "Mathematics": "https://drive.google.com/drive/folders/1gc4xTDiYa8Pb-gDQD3MaM6pW_QsBiicw?usp=sharing",
+      "Biology": "https://drive.google.com/drive/folders/1lzcxBhkNJe70cJDm-ddYbW7Nw6Hcy9VB?usp=sharing",
+      "Hindi": "https://drive.google.com/drive/folders/16EeQ8XaYYe-7B6SLT8mKSLaMSBT3tREk?usp=sharing",
+      "English": "https://drive.google.com/drive/folders/11olhSviQoyqGEuEEOOcFnbKpCVZkxPZH?usp=sharing"
+    },
+    "Objective (MCQ)": {
+      "__ALL__": "https://drive.google.com/drive/folders/1P_F7MKihwD0Y7EylMKoRktusMvcYfHJT?usp=sharing",
+      "Physics": "https://drive.google.com/drive/folders/1GpqWvbTKjxJcqjKVRXiCpFgzj1PG47Cu?usp=sharing",
+      "Chemistry": "https://drive.google.com/drive/folders/1vi8IEvdV3V0I9V5QTMe54h7YxHd9cWBT?usp=sharing",
+      "Mathematics": "https://drive.google.com/drive/folders/1LursBU2iv8gJI9am6WCgMICEA-i792E-?usp=sharing",
+      "Biology": "https://drive.google.com/drive/folders/1v0n8SgmwUEaIIq_uBR1Z_d7pFCD2YeH-?usp=sharing",
+      "Hindi": "https://drive.google.com/drive/folders/1Oo3Ja_ScSy6d_YMTw1DzwiH3sBPltBRc?usp=sharing",
+      "English": "https://drive.google.com/drive/folders/1FEHPkD3l11-DIGzxW3Relw9VxhrLEVRp?usp=sharing"
+    }
+  },
+  "Class 12 Arts": {
+    "Objective (MCQ)": {
+      "__ALL__": "https://drive.google.com/drive/folders/18Tr7YycF7ATiQRs7h1X_mpKLQu46xvfI?usp=drive_link"
     }
   }
 };
 
-const CLASS_ORDER = ["Class 10","Class 11","Class 12"];
-// keep insertion order as given for sections within a class (Class 11 Theory only; Class12/10 Objective then Theory as given)
+const CLASS_ORDER = ["Class 10","Class 11","Class 12","Class 12 Arts"];
 const SECTION_ORDER = {
-  "Class 11": ["Theory"],
-  "Class 12": ["Objective (MCQ)","Theory"],
-  "Class 10": ["Theory","Objective (MCQ)"]
+  "Class 10": ["Theory","Objective (MCQ)"],
+  "Class 11": ["Theory","Objective (MCQ)"],
+  "Class 12": ["Theory","Objective (MCQ)"],
+  "Class 12 Arts": ["Objective (MCQ)"]
 };
 
 let activeClass = CLASS_ORDER.find(c => DATA[c]) || Object.keys(DATA)[0];
 const selected = new Map(); // key "Class|Section|Subject" -> {label, url}
 
 function ordinal(cls){
-  // "Class 11" -> "Class 11th", "Class 12" -> "Class 12th", "Class 10" -> "Class 10th"
+  // "Class 11" -> "Class 11th", "Class 12 Arts" -> "Class 12th Arts"
+  if(cls.includes("Arts")){
+    const n = cls.replace("Class ", "").replace(" Arts", "").trim();
+    return `Class ${n}th Arts`;
+  }
   const n = cls.replace("Class ", "").trim();
   return `Class ${n}th`;
 }
@@ -334,8 +357,23 @@ function renderContent(){
   if(!classData){ content.innerHTML = '<div class="empty">No material yet for this class.</div>'; return; }
 
   const sections = (SECTION_ORDER[activeClass] || Object.keys(classData)).filter(s => classData[s]);
+  let renderedAny = false;
 
   sections.forEach(sec => {
+    const subjects = classData[sec];
+    // only subjects that actually have a non-empty url
+    const subjectKeys = Object.keys(subjects)
+      .filter(subj => subjects[subj] && subjects[subj].trim() !== '')
+      .sort((a,b) => {
+        if(a === "__ALL__") return -1;
+        if(b === "__ALL__") return 1;
+        return a.localeCompare(b);
+      });
+
+    if(subjectKeys.length === 0) return; // skip empty sections entirely
+
+    renderedAny = true;
+
     const block = document.createElement('div');
     block.className = 'section-block';
 
@@ -350,12 +388,6 @@ function renderContent(){
     const grid = document.createElement('div');
     grid.className = 'subject-grid';
 
-    const subjects = classData[sec];
-    const subjectKeys = Object.keys(subjects).sort((a,b) => {
-      if(a === "__ALL__") return -1;
-      if(b === "__ALL__") return 1;
-      return a.localeCompare(b);
-    });
     subjectKeys.forEach(subj => {
       const url = subjects[subj];
       const k = keyFor(activeClass, sec, subj);
@@ -378,15 +410,10 @@ function renderContent(){
 
       const copyBtn = document.createElement('button');
       copyBtn.className = 'copybtn';
-      copyBtn.textContent = 'Copy link';
+      copyBtn.textContent = 'Open';
       copyBtn.onclick = (e) => {
         e.stopPropagation();
-        copyText(buildSingleText(activeClass, sec, subj, url), () => {
-          copyBtn.textContent = 'Copied ✓';
-          copyBtn.classList.add('done');
-          showToast(`Copied: ${labelFor(activeClass, sec, subj)}`);
-          setTimeout(() => { copyBtn.textContent = 'Copy link'; copyBtn.classList.remove('done'); }, 1400);
-        });
+        window.open(url, '_blank');
       };
 
       card.appendChild(chk);
@@ -398,6 +425,10 @@ function renderContent(){
     block.appendChild(grid);
     content.appendChild(block);
   });
+
+  if(!renderedAny){
+    content.innerHTML = '<div class="empty">No material uploaded yet for this class. Check back soon.</div>';
+  }
 }
 
 function toggleSelect(cls, sec, subj, url){
