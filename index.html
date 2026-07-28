@@ -320,7 +320,7 @@ const DATA = {
   "Class 12 Arts": {
     "Objective (MCQ)": {
       "__ALL__": "https://drive.google.com/drive/folders/1WoI8YQ8GE6LLgtdyR89eRLzm8A_yo1Oy?usp=sharing",
-      "Grammar": "https://drive.google.com/drive/folders/1hAsbfuBX6J5sHeizwjJHktPnDHn7e5aa?usp=sharing"
+     
     }
   },
   "Video Lectures": {
@@ -353,17 +353,7 @@ function ordinal(cls){
   return `Class ${n}th`;
 }
 function keyFor(cls, sec, subj){ return cls + "|" + sec + "|" + subj; }
-
-// Custom label overrides — exact text tu chahta hai in specific cards ke liye
-const LABEL_OVERRIDES = {
-  "Class 12 Arts|Objective (MCQ)|Grammar": "Grammar MCQ",
-  "Video Lectures|Videos|__ALL__": "Video for Editable file"
-};
-
 function labelFor(cls, sec, subj){
-  const override = LABEL_OVERRIDES[keyFor(cls, sec, subj)];
-  if(override) return override;
-
   const secShort = sec.toLowerCase().includes("mcq") || sec.toLowerCase().includes("objective") ? "MCQ" : (sec === "Videos" ? "Video" : "Theory");
   const clsLabel = ordinal(cls);
   if(subj === "__ALL__"){
