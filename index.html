@@ -75,6 +75,26 @@
     background:var(--green-dk); border-color:var(--green-dk); color:#fff;
   }
 
+  .bulkrow{
+    display:flex; gap:8px; margin: 0 0 14px; flex-wrap:wrap;
+  }
+  .bulkbtn{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13.5px; font-weight:700;
+    border:1.5px solid var(--green);
+    background:var(--green);
+    color:#fff;
+    padding:9px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    transition: all .15s ease;
+  }
+  .bulkbtn:hover{ background:var(--green-dk); border-color:var(--green-dk); }
+  .bulkbtn-ghost{
+    background:transparent; color:var(--green-dk); border-color:var(--rule);
+  }
+  .bulkbtn-ghost:hover{ background:var(--paper-2); border-color:var(--green-dk); color:var(--green-dk); }
+
   .section-block{ margin-bottom:26px; }
   .section-head{
     display:flex; align-items:center; gap:10px;
@@ -224,6 +244,10 @@
 
 <div class="wrap">
   <div class="classrow" id="classRow"></div>
+  <div class="bulkrow">
+    <button class="bulkbtn" id="selectAllBtn">✅ Select All (9th–12th)</button>
+    <button class="bulkbtn bulkbtn-ghost" id="clearAllBtn">Clear All</button>
+  </div>
   <div id="content"></div>
 </div>
 
@@ -265,10 +289,11 @@ const DATA = {
       "Social Science (SST)": "https://drive.google.com/drive/folders/1TSwvqqGGbwAzxt_K3ujHKNTudIpWwYg9?usp=sharing",
       "Sanskrit": "https://drive.google.com/drive/folders/1bkgYy43-OtJywvlGZbZ2fJ4BWiLJ6A1m?usp=sharing",
       "Hindi": "https://drive.google.com/drive/folders/1VucaX1RZx6p2-kW2uouEJhAXelR-lke6?usp=sharing",
-      "English": "https://drive.google.com/drive/folders/1ObjIOF-PQCDmyLzMOIZmvHhyukr7yTe9?usp=sharing"
+      "English": "https://drive.google.com/drive/folders/14_XVDurqxW7WK0jnEXUDI-c59hjI41uu?usp=sharing"
     },
     "Objective (MCQ)": {
       "__ALL__": "https://drive.google.com/drive/folders/1M5Yrbycuj4k9ttiACrc-OERa5lanCP_X?usp=sharing",
+      "New": "https://drive.google.com/drive/folders/1cvanwdwju8rlsX8n01S9M0tgWGcF-5nP?usp=sharing",
       "Science": "https://drive.google.com/drive/folders/1wyPNEkUWPJPtjaFPQ9e0Z0d3vy_9MtBG?usp=sharing",
       "Mathematics": "https://drive.google.com/drive/folders/1oEcN-n-mJe34p74SSF2YQ5YkPGvtkFbx?usp=sharing",
       "Hindi": "https://drive.google.com/drive/folders/13TOkYufrvwH_eRHhXmYKsG230d77Cbjp?usp=sharing",
@@ -279,7 +304,7 @@ const DATA = {
   },
   "Class 11": {
     "Theory": {
-      "__ALL__": "https://drive.google.com/drive/folders/1Av2QIXDuzG4YMmKxONulPx8P8k_fjtNL?usp=sharing",
+      "__ALL__": "https://drive.google.com/drive/folders/1DGTmq5BJofk47Sw2ln3ZR-7Dc5_ERlPH?usp=sharing",
       "Physics": "https://drive.google.com/drive/folders/1GImC00P_MirU4ycJkb6FAMTbOFeToQ6N?usp=sharing",
       "Chemistry": "https://drive.google.com/drive/folders/1xEbz3sNqJrtQsEKKhmtKNKdrw5tgd4zp?usp=sharing",
       "Mathematics": "https://drive.google.com/drive/folders/1UfF6FC7cb1WqAnpBlsbtTVnrcEthnp5-?usp=drive_link",
@@ -320,7 +345,7 @@ const DATA = {
   "Class 12 Arts": {
     "Objective (MCQ)": {
       "__ALL__": "https://drive.google.com/drive/folders/1WoI8YQ8GE6LLgtdyR89eRLzm8A_yo1Oy?usp=sharing",
-     
+      "Grammar": "https://drive.google.com/drive/folders/1hAsbfuBX6J5sHeizwjJHktPnDHn7e5aa?usp=sharing"
     }
   },
   "Video Lectures": {
@@ -353,7 +378,17 @@ function ordinal(cls){
   return `Class ${n}th`;
 }
 function keyFor(cls, sec, subj){ return cls + "|" + sec + "|" + subj; }
+
+// Custom label overrides — exact text tu chahta hai in specific cards ke liye
+const LABEL_OVERRIDES = {
+  "Class 12 Arts|Objective (MCQ)|Grammar": "Grammar MCQ",
+  "Video Lectures|Videos|__ALL__": "Video for Editable file"
+};
+
 function labelFor(cls, sec, subj){
+  const override = LABEL_OVERRIDES[keyFor(cls, sec, subj)];
+  if(override) return override;
+
   const secShort = sec.toLowerCase().includes("mcq") || sec.toLowerCase().includes("objective") ? "MCQ" : (sec === "Videos" ? "Video" : "Theory");
   const clsLabel = ordinal(cls);
   if(subj === "__ALL__"){
@@ -532,6 +567,35 @@ document.getElementById('clearBtn').onclick = () => {
   selected.clear();
   renderContent();
   renderSelectBar();
+};
+
+// Classes covered by the bulk "Select All" shortcut
+const BULK_SELECT_CLASSES = ["Class 9","Class 10","Class 11","Class 12"];
+
+document.getElementById('selectAllBtn').onclick = () => {
+  BULK_SELECT_CLASSES.forEach(cls => {
+    const classData = DATA[cls];
+    if(!classData) return;
+    const sections = SECTION_ORDER[cls] || Object.keys(classData);
+    sections.forEach(sec => {
+      const subjects = classData[sec];
+      if(!subjects) return;
+      const url = subjects["__ALL__"];
+      if(!url || url.trim() === '') return;
+      const k = keyFor(cls, sec, "__ALL__");
+      selected.set(k, { label: labelFor(cls, sec, "__ALL__"), url });
+    });
+  });
+  renderContent();
+  renderSelectBar();
+  showToast(`Selected All Subjects links · Class 9th to 12th`);
+};
+
+document.getElementById('clearAllBtn').onclick = () => {
+  selected.clear();
+  renderContent();
+  renderSelectBar();
+  showToast('Cleared all selections');
 };
 
 document.getElementById('copySelBtn').onclick = (e) => {
